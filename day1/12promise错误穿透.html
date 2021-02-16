@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        new Promise((resolve,reject)=>{
+            reject(2)
+        }).then(
+            value=>console.log('Resolved1',value),
+            reason=>{throw reason}//错误自动穿透
+        ).then(
+            value=>console.log('Resolved2',value)
+        ).then(
+            value=>console.log('Resolved3',value)
+        ).catch(reason=>{
+            console.log('Rejected',reason);
+        })
+    </script>
+</body>
+</html>

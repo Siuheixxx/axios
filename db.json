@@ -1,0 +1,12 @@
+{
+  "posts": [
+    {
+      "author": "bbb",
+      "id": 2
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

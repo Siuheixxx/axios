@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1. reference error
+        // console.log(a);
+        //2. type error
+        // let b = null
+        //         console.log(b.xxx);
+        //3.Ranger error无限递归
+        // function fn(){
+        //     fn()
+        // }
+        // fn()
+        //4.Syntax error语法错误
+        // let c=""""
+        try{
+            const e={}
+            e()
+        }catch(error){
+            console.log(error.message)
+            console.log(error.stack)
+        }
+        console.log('-------');
+
+        function doThing(){
+            const time=Date.now()
+            if(time%2==1){
+                console.log('奇数');
+            }else{
+                throw new Error('当前时间为偶数'+time)
+            }
+        }
+        try{//捕获错误
+        doThing()}
+        catch(error){
+            alert(error.message)
+        }
+    </script>
+</body>
+
+</html>

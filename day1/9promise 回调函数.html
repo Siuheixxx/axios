@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 常规：先改变状态，后指定回调函数
+        new Promise((resolve,reject)=>{//同步回调
+                resolve(1)//pending==>resolved value=1
+                console.log('1');
+            })
+        .then(//先指定回调函数，内部先将回调函数保存起来
+            value=>{//回调函数异步执行，需要放入队列执行
+                console.log('onResolved()',value);
+            }
+        )
+        console.log('new 之后');
+    </script>
+</body>
+</html>

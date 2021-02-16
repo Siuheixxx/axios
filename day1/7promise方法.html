@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                // resolve(1)
+                reject(2)
+            },1000);
+        }).then(value=>{
+            console.log('onResolved()',value);
+        },reason=>{
+            console.log('onRejected()',reason);
+        }).catch(reason=>{
+            console.log('onRejected()',reason);
+        })
+        // 创建一个value值为3的promise对象
+        const p1=new Promise((resolve,reject)=>{
+            resolve(5)
+        })
+        const p2=Promise.resolve(3)
+        const p3=Promise.reject(4)
+        const p4=Promise.reject(5)
+        p1.then(value=>console.log('p1 value',value))
+        p2.then(value=>console.log('p2 value',value))
+        p3.catch(reason=>console.log('p3 value',reason))
+        p4.catch(reason=>console.log('p4 value',reason))
+        //all
+        const p5=Promise.all([p2,p1])
+        p5.then(
+            value=>console.log(value),
+            reason=>console.log(reason)
+        )
+        //race
+        const p6=Promise.race([p1,p2,p3])
+        p6.then(
+            value=>console.log(value),
+            reason=>console.log(reason)
+        )
+    </script>
+</body>
+</html>

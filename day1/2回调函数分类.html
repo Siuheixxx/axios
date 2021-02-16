@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr=[1,2,3]
+        arr.forEach(item=>{ //同步执行回调函数
+            console.log('forEach callback()',item);
+        })
+        console.log('forEach之后')
+        setTimeout(() => {//异步执行回调函数
+            console.log('setTimeout callback()');
+        }, 0);
+        console.log('setTimeout之后')
+        </script>
+    </body>
+</html>
